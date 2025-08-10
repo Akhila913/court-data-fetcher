@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Court Data Fetcher</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            background: #000;
+        }
+        /* Background image layer */
+        .bg-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('/static/fetcher/images/court1.jpg'); /* <-- Replace with your court image path */
+            background-size: cover;
+            background-position: center;
+            filter: blur(6px) brightness(0.5);
+            z-index: -1;
+        }
+        /* Form container */
+        .form-container {
+            background-color: rgba(229, 129, 6, 0.77);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(2, 2, 2, 1);
+            max-width: 400px;
+            width: 100%;
+        }
+        label {
+            display: block;
+            margin-top: 1rem;
+            font-weight: bold;
+        }
+        select, input, button {
+            width: 100%;
+            padding: 0.5rem;
+            margin-top: 0.3rem;
+            border-radius: 5px;
+            border: none;
+        }
+        button {
+            background-color: #2551f2ff;
+            color: white;
+            font-size: 1rem;
+            margin-top: 1.5rem;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0c10f5ff;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Blurred background image -->
+    <div class="bg-image"></div>
+
+    <div class="form-container">
+        <h1>Delhi High Court Case Search</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <label for="case_type">Case Type:</label>
+            <select name="case_type" id="case_type" required>
+                <option value="W.P.(C)">W.P.(C)</option>
+                <option value="CS(OS)">CS(OS)</option>
+                <option value="O.M.P. (COMM)">O.M.P. (COMM)</option>
+                <option value="A.R.B.A.">A.R.B.A.</option>
+                <option value="A.R.B. A. (COMM.)">A.R.B. A. (COMM.)</option>
+                <option value="A.R.B.P.">A.R.B.P.</option>
+            </select>
+
+            <label for="case_number">Case Number:</label>
+            <input type="text" name="case_number" id="case_number" required>
+
+            <label for="case_year">Filing Year:</label>
+            <input type="text" name="case_year" id="case_year" required pattern="\d{4}">
+
+            <button type="submit">Fetch Details</button>
+        </form>
+    </div>
+</body>
+</html>

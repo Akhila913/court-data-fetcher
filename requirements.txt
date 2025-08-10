@@ -1,0 +1,12 @@
+asgiref==3.9.1
+Django==5.2.5
+greenlet==3.2.4
+packaging==25.0
+pillow==11.3.0
+playwright==1.54.0
+pyee==13.0.0
+pytesseract==0.3.13
+python-dotenv==1.1.1
+sqlparse==0.5.3
+typing_extensions==4.14.1
+tzdata==2025.2

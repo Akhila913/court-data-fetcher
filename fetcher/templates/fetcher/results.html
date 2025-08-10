@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Case Results</title>
+</head>
+<body>
+    <h1>Case Details</h1>
+
+    {% if data %}
+        {% for case in data %}
+            <div style="border:1px solid #ccc; padding:10px; margin-bottom:10px;">
+                <p><strong>Case No.:</strong> {{ case.case_no }}</p>
+                <p><strong>Party:</strong> {{ case.party }}</p>
+                <p><strong>Corrigendum:</strong> {{ case.corrigendum }}</p>
+                <p><strong>Latest Judgment Date:</strong> {{ case.latest_judgment_date }}</p>
+                
+                {% if case.judgment_links %}
+                    <p><strong>Orders / Judgments:</strong></p>
+                    <ul>
+                        {% for link in case.judgment_links %}
+                            <li>
+                                <a href="{{ link.url }}" target="_blank">{{ link.text }}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p>No documents available.</p>
+                {% endif %}
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>No case data found.</p>
+    {% endif %}
+
+    <br>
+    <a href="/">Search Again</a>
+</body>
+</html>
