@@ -41,8 +41,8 @@ A Django + Playwright web application to fetch and display case metadata and the
 ## Setup Steps
 
 ### 1. Clone the repository
-git clone https://github.com/your-username/court-fetcher.git
-cd court-fetcher
+git clone https://github.com/Akhila913/court-data-fetcher.git
+cd court-data-fetcher
 
 ### 2. Create a virtual environment
 python -m venv venv   
@@ -50,11 +50,13 @@ source venv/Scripts/activate
 
 ### 3. Install dependencies
 pip install -r requirements.txt
-### 4. Install Playwright browsers
 
+### 4. Install Playwright browsers
 playwright install
+
 ### 5. Apply migrations
 python manage.py migrate
+
 ### 6. Run the development server
 python manage.py runserver
 The app will be available at: http://localhost:8000
